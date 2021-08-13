@@ -1,0 +1,7 @@
+argo-cd:
+  fullnameOverride: argocd
+  server:
+    configEnabled: true
+    config:
+      repositories: |
+         - url: https://github.com/smaftoul/argocd-psmdb

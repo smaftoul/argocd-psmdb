@@ -1,0 +1,9 @@
+apiVersion: v2
+name: argocd-psmdb
+description: Testing ArgoCD and Psmdb
+type: application
+version: 0.1.0
+dependencies:
+  - name: argo-cd
+    version: "3.11.5"
+    repository: "https://argoproj.github.io/argo-helm"
