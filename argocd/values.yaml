@@ -5,3 +5,15 @@ argo-cd:
     config:
       repositories: |
          - url: https://github.com/smaftoul/argocd-psmdb
+    additionalApplications:
+      - project: default
+        source:
+          repoURL: https://github.com/smaftoul/argocd-psmdb
+          targetRevision: HEAD
+          path: psmdb
+        destination:
+          server: https://kubernetes.default.svc
+          namespace: po
+        syncPolicy:
+          syncOptions:
+            - CreateNamespace=true
