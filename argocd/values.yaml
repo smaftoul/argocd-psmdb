@@ -6,14 +6,24 @@ argo-cd:
       repositories: |
          - url: https://github.com/smaftoul/argocd-psmdb
     additionalApplications:
-      - project: default
+      - name: argocd
+        project: default
+        source:
+          repoURL: https://github.com/smaftoul/argocd-psmdb
+          targetRevision: HEAD
+          path: argocd
+        destination:
+          server: https://kubernetes.default.svc
+          namespace: argocd
+      - name: psmdb
+        project: default
         source:
           repoURL: https://github.com/smaftoul/argocd-psmdb
           targetRevision: HEAD
           path: psmdb
         destination:
           server: https://kubernetes.default.svc
-          namespace: po
+          namespace: psmdb
         syncPolicy:
           syncOptions:
             - CreateNamespace=true
